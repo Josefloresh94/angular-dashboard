@@ -1,0 +1,17 @@
+<div class="sidenav-header">
+  <img
+    [width]="profilePicSize()"
+    [height]="profilePicSize()"
+    src="https://picsum.photos/200/300"
+    alt=""
+  />
+  <div class="header-text" [class.hide-header-text]="!sideNavCollapsed()">
+    <h2>Your channel</h2>
+    <p>Jose Flores</p>
+  </div>
+  <mat-nav-list>
+    @for (item of menuItem(); track item.label) {
+      <app-item-menu [item]="item" [collapsed]="sideNavCollapsed()" />
+    }
+  </mat-nav-list>
+</div>

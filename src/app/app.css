@@ -1,0 +1,22 @@
+mat-toolbar {
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 64px);
+  background-color: white;
+
+  mat-sidenav, mat-sidenav-content {
+    transition: all 500ms ease-in-out;
+  }
+
+  mat-sidenav.collapsed {
+    width: 64px;
+  }
+
+  .content {
+    padding: 24px;
+  }
+}
