@@ -1,15 +1,20 @@
 <a
   class="menu-item"
   mat-list-item
-  [routerLink]="routeHistory()+ '/' + item().route"
+  [routerLink]="routeHistory() + '/' + item().route"
   (click)="nestedItemOpen.set(!nestedItemOpen())"
   routerLinkActive="selected-menu-item"
   #rla="routerLinkActive"
   [style.--mat-list-list-item-leading-icon-start-space]="indentation()"
-  [activated]="rla.isActive">
-  <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{item().icon}}</mat-icon>
+  [activated]="rla.isActive"
+>
+  <mat-icon
+    [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'"
+    matListItemIcon
+    >{{ item().icon }}</mat-icon
+  >
   @if (collapsed()) {
-    <span matListItemTitle>{{item().label}}</span>
+    <span matListItemTitle>{{ item().label }}</span>
   }
 
   @if (item().subItems) {
@@ -26,7 +31,11 @@
 @if (nestedItemOpen()) {
   <div @expandContractMenu>
     @for (subItem of item().subItems; track subItem.label) {
-      <app-item-menu [item]="subItem" [collapsed]="collapsed()" [routeHistory]="routeHistory() + '/' + item().route"/>
+      <app-item-menu
+        [item]="subItem"
+        [collapsed]="collapsed()"
+        [routeHistory]="routeHistory() + '/' + item().route"
+      />
     }
   </div>
 }

@@ -9,7 +9,8 @@
 }
 .selected-menu-item {
   border-left-color: blue;
-  mat-icon, span {
+  mat-icon,
+  span {
     color: blue;
   }
 }

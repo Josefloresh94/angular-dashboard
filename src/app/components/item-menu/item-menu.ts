@@ -16,5 +16,7 @@ export class ItemMenu {
   routeHistory = input('');
   nestedItemOpen = signal(false);
   level = computed(() => this.routeHistory().split('/').length - 1);
-  indentation = computed(() => this.collapsed() ? `${(16 + (this.level() * 16))}px` : '16px');
+  indentation = computed(() =>
+    this.collapsed() ? `${16 + this.level() * 16}px` : '16px',
+  );
 }

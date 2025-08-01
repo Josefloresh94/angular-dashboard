@@ -37,7 +37,7 @@ export class CustomSidenav {
       label: 'Comments',
       route: 'comments',
     },
-  ])
+  ]);
 
-  profilePicSize = computed(() => this.sideNavCollapsed() ? '100' : '32');
+  profilePicSize = computed(() => (this.sideNavCollapsed() ? '100' : '32'));
 }
