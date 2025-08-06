@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem auto;
+}
+.row mat-icon {
+  color: #4CAF50;
+}
+.stats {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.stat-subtext {
+  font-size: 0.875rem;
+}
+
+.stat-subtext span {
+  color: #4CAF50;
+}

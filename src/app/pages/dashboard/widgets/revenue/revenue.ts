@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-subscribers',
+  selector: 'app-revenue',
   imports: [MatIconModule],
-  templateUrl: './subscribers.html',
-  styleUrl: './subscribers.css',
+  templateUrl: './revenue.html',
+  styleUrl: './revenue.css'
 })
-export class Subscribers {}
+export class Revenue {
+
+}
