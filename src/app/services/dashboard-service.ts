@@ -54,7 +54,7 @@ export class DashboardService {
     },
   ]);
 
-  constructor(){
+  constructor() {
     this.fetchWidgets();
   }
 
@@ -69,12 +69,12 @@ export class DashboardService {
     const widgetsAsString = localStorage.getItem('dashboardWidgets');
     if (widgetsAsString) {
       const widgets = JSON.parse(widgetsAsString) as Widgets[];
-      widgets.forEach(widget => {
-        const content = this.widgets().find(w => w.id === widget.id)?.content;
+      widgets.forEach((widget) => {
+        const content = this.widgets().find((w) => w.id === widget.id)?.content;
         if (content) {
           widget.content = content;
         }
-      })
+      });
       this.addedWidgets.set(widgets);
     }
   }
@@ -123,17 +123,45 @@ export class DashboardService {
   }
 
   removeWidget(id: number) {
-    this.addedWidgets.set(
-      this.addedWidgets().filter((w) => w.id !== id)
-    );
+    this.addedWidgets.set(this.addedWidgets().filter((w) => w.id !== id));
   }
 
   saveWidgets = effect(() => {
-    const widgetsWithoutContent: Partial<Widgets>[] = this.addedWidgets().map(w => ({ ...w }));
-    widgetsWithoutContent.forEach(w => {
+    const widgetsWithoutContent: Partial<Widgets>[] = this.addedWidgets().map(
+      (w) => ({ ...w }),
+    );
+    widgetsWithoutContent.forEach((w) => {
       delete w.content;
     });
 
-    localStorage.setItem('dashboardWidgets', JSON.stringify(widgetsWithoutContent));
-  })
+    localStorage.setItem(
+      'dashboardWidgets',
+      JSON.stringify(widgetsWithoutContent),
+    );
+  });
+
+  updateWidgetPosition(sourceWidgetId: number, targetWidgetId: number) {
+    const sourceIndex = this.addedWidgets().findIndex(
+      (w) => w.id === sourceWidgetId,
+    );
+
+    if (sourceIndex === -1) {
+      return;
+    }
+
+    const newWidgets = [...this.addedWidgets()];
+    const sourceWidget = newWidgets.splice(sourceIndex, 1)[0];
+
+    const targetIndex = newWidgets.findIndex((w) => w.id === targetWidgetId);
+
+    if (targetIndex === -1) {
+      return;
+    }
+
+    const insertAt =
+      targetIndex === sourceIndex ? targetIndex + 1 : targetIndex;
+
+    newWidgets.splice(insertAt, 0, sourceWidget);
+    this.addedWidgets.set(newWidgets);
+  }
 }

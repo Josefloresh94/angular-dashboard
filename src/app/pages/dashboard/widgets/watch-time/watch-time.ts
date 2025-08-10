@@ -5,8 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-watch-time',
   imports: [MatIconModule],
   templateUrl: './watch-time.html',
-  styleUrl: './watch-time.css'
+  styleUrl: './watch-time.css',
 })
-export class WatchTime {
-
-}
+export class WatchTime {}

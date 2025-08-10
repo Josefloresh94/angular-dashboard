@@ -1,15 +1,25 @@
-<div class="container" [style.background-color]="data().backgroundColor ?? 'white'" [style.color]="data().color ?? 'inherit'">
-  <h3>{{ data().label }}</h3>
-  <button
-    mat-icon-button
-    class="settings-button"
-    (click)="showOptions.set(true)"
-    [style.--mat-icon-color]="data().color ?? 'inherit'"
-  >
-    <mat-icon>settings</mat-icon>
-  </button>
+<div
+  class="container"
+  [style.background-color]="data().backgroundColor ?? 'white'"
+  [style.color]="data().color ?? 'inherit'"
+  cdkDrag
+  cdkDragPreviewContainer="parent"
+>
+  <div class="header">
+    <h3>{{ data().label }}</h3>
+    <button
+      mat-icon-button
+      class="settings-button"
+      (click)="showOptions.set(true)"
+      [style.--mat-icon-color]="data().color ?? 'inherit'"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
   <ng-container [ngComponentOutlet]="data().content" />
   @if (showOptions()) {
     <app-widget-options [(showOptions)]="showOptions" [data]="data()" />
   }
+
+  <div *cdkDragPlaceholder></div>
 </div>

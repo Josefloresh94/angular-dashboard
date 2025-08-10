@@ -4,10 +4,17 @@ import { NgComponentOutlet } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { WidgetOptions } from './widget-options/widget-options';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-widget',
-  imports: [NgComponentOutlet, MatButtonModule, MatIconModule, WidgetOptions],
+  imports: [
+    NgComponentOutlet,
+    MatButtonModule,
+    MatIconModule,
+    WidgetOptions,
+    DragDropModule,
+  ],
   templateUrl: './widget.html',
   styleUrl: './widget.css',
   host: {

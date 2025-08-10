@@ -17,7 +17,13 @@
     0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   gap: 16px;
 }
-
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  cursor: move;
+}
 .settings-button {
   position: absolute;
   top: 20px;

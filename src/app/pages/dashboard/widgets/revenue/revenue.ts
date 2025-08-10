@@ -5,8 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-revenue',
   imports: [MatIconModule],
   templateUrl: './revenue.html',
-  styleUrl: './revenue.css'
+  styleUrl: './revenue.css',
 })
-export class Revenue {
-
-}
+export class Revenue {}

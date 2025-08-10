@@ -5,7 +5,7 @@
   margin: 0.5rem auto;
 }
 .row mat-icon {
-  color: #4CAF50;
+  color: #4caf50;
 }
 .stats {
   font-size: 2rem;
@@ -18,5 +18,5 @@
 }
 
 .stat-subtext span {
-  color: #4CAF50;
+  color: #4caf50;
 }
